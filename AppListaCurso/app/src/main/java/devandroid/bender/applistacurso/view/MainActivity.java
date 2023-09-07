@@ -1,8 +1,10 @@
-package devandroid.bender.applistacurso;
+package devandroid.bender.applistacurso.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import devandroid.bender.applistacurso.R;
 
 public class MainActivity extends AppCompatActivity {
 
