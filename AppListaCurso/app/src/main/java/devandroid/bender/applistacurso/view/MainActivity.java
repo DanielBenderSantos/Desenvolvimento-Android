@@ -3,6 +3,7 @@ package devandroid.bender.applistacurso.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import devandroid.bender.applistacurso.R;
 import devandroid.bender.applistacurso.model.Pessoa;
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         dadosOutraPessoa += "Telefone de contato: ";
         dadosOutraPessoa += outraPessoa.getTelefoneContato();
 
-
+        Log.i("POOAndroid", pessoa.toString());
+        Log.i("POOAndroid", outraPessoa.toString());
 
     }
 }
