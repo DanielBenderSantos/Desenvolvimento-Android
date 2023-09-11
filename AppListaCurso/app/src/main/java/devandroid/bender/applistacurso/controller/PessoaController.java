@@ -1,4 +1,4 @@
 package devandroid.bender.applistacurso.controller;
 
-public class CursoController {
+public class PessoaController {
 }
