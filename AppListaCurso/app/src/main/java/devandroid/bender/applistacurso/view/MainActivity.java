@@ -43,17 +43,20 @@ public class MainActivity extends AppCompatActivity {
         controller.toString();
 
         pessoa = new Pessoa();
-
-        outraPessoa = new Pessoa();
-        outraPessoa.setPrimeiroNome("Bruna");
-        outraPessoa.setSobreNome("Bender");
-        outraPessoa.setCursoDesejado("Java");
-        outraPessoa.setTelefoneContato("11-5432234");
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome","NA"));
+        pessoa.setSobreNome(preferences.getString("sobreNome","NA"));
+        pessoa.setCursoDesejado(preferences.getString("nomeCurso","NA"));
+        pessoa.setTelefoneContato(preferences.getString("telefoneContato","NA"));
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobreNome = findViewById(R.id.editSobreNome);
         editNomeCurso = findViewById(R.id.editNomeCurso);
         editTelefoneContato = findViewById(R.id.editTelefoneContato);
+
+        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
+        editSobreNome.setText(pessoa.getSobreNome());
+        editNomeCurso.setText(pessoa.getCursoDesejado());
+        editTelefoneContato.setText(pessoa.getTelefoneContato());
 
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setCursoDesejado(editNomeCurso.getText().toString());
                 pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
-                Toast.makeText(MainActivity.this, "Salvo " + outraPessoa.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Salvo " + pessoa.toString(), Toast.LENGTH_LONG).show();
 
                 listaVip.putString("primeiroNome",pessoa.getPrimeiroNome());
                 listaVip.putString("sobreNome",pessoa.getSobreNome());
@@ -95,13 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 controller.salvar(pessoa);
             }
         });
-        editPrimeiroNome.setText(outraPessoa.getPrimeiroNome());
-        editSobreNome.setText(outraPessoa.getSobreNome());
-        editNomeCurso.setText(outraPessoa.getCursoDesejado());
-        editTelefoneContato.setText(outraPessoa.getTelefoneContato());
 
         Log.i("POOAndroid", pessoa.toString());
-        Log.i("POOAndroid", outraPessoa.toString());
-
     }
 }
