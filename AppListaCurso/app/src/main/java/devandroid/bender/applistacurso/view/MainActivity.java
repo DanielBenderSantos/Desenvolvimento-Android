@@ -10,10 +10,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import devandroid.bender.applistacurso.R;
+import devandroid.bender.applistacurso.controller.PessoaController;
 import devandroid.bender.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+    PessoaController controller;
     Pessoa pessoa;
     Pessoa outraPessoa;
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        controller = new PessoaController();
+        controller.toString();
         pessoa = new Pessoa();
 
         outraPessoa = new Pessoa();
@@ -68,13 +72,14 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                outraPessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
-                outraPessoa.setSobreNome(editSobreNome.getText().toString());
-                outraPessoa.setCursoDesejado(editNomeCurso.getText().toString());
-                outraPessoa.setTelefoneContato(editTelefoneContato.getText().toString());
+                pessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
+                pessoa.setSobreNome(editSobreNome.getText().toString());
+                pessoa.setCursoDesejado(editNomeCurso.getText().toString());
+                pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
                 Toast.makeText(MainActivity.this, "Salvo " + outraPessoa.toString(), Toast.LENGTH_LONG).show();
 
+                controller.salvar(pessoa);
             }
         });
         editPrimeiroNome.setText(outraPessoa.getPrimeiroNome());
