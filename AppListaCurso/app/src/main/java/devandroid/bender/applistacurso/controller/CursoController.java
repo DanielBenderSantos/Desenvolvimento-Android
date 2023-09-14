@@ -12,6 +12,7 @@ public class CursoController {
         listCursos.add(new Curso("Java"));
         listCursos.add(new Curso("HTML"));
         listCursos.add(new Curso("C#"));
+
         return listCursos;
     }
 
