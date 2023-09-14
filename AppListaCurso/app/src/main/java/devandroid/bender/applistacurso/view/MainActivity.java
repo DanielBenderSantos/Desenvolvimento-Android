@@ -10,14 +10,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import devandroid.bender.applistacurso.R;
+import devandroid.bender.applistacurso.controller.CursoController;
 import devandroid.bender.applistacurso.controller.PessoaController;
+import devandroid.bender.applistacurso.model.Curso;
 import devandroid.bender.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
     PessoaController controller;
+    CursoController cursoController;
     Pessoa pessoa;
+    List<Curso> listaDeCursos;
     Pessoa outraPessoa;
 
     EditText editPrimeiroNome;
@@ -36,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new PessoaController(MainActivity.this);
         controller.toString();
+
+        cursoController = new CursoController();
+        listaDeCursos = cursoController.getListaDeCursos();
 
         pessoa = new Pessoa();
         controller.buscar(pessoa);
